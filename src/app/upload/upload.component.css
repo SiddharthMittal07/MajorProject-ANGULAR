@@ -1,0 +1,170 @@
+#upload {
+    height: 75vh;
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 3rem;
+}
+
+#upload:target {
+    animation: colorTarget 2s;
+}
+
+@keyframes colorTarget {
+    0% {
+        border: 3px solid yellow;
+    }
+
+    75% {
+        border: 3px solid yellow;
+    }
+
+    100% {
+        border: none;
+    }
+}
+
+.title-description {
+    height: 20%;
+    width: 100%;
+    background-color: #191970;
+    color: #fff;
+}
+
+#title {
+    font-size: 2.3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#desc {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    height: 70%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    height: 80%;
+    width: 80%;
+    border: 2px dashed black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form form {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#form {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    border: 2px dashed #191970;
+    padding: 0 0.5rem;
+}
+
+#form form {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form input[type="file"] {
+    padding: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.form button {
+    border: none;
+    background-color: #191970;
+    font-size: 1.2rem;
+    padding: 0rem 2rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+#form button {
+    border: none;
+    background-color: #191970;
+    font-size: 0.8rem;
+    padding: 0rem 1rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button:focus {
+    transform: scale(0.98);
+}
+
+#form input[type="file"] {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.form label {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #191970;
+    text-transform: uppercase;
+}
+
+#form label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #191970;
+    text-transform: uppercase;
+}
+
+.form-result {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#form-image {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    flex-direction: column;
+}
+
+#form-image img {
+    width: 30%;
+    height: 40%;
+    border: 1px solid yellow;
+}
+
+#predicted-result {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+svg {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+}

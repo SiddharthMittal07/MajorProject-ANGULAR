@@ -1,0 +1,12 @@
+<header>
+    <div class="container">
+        <div class="top-bar">
+            <div id="logo">{{ logoText }}</div>
+            <ul id="navbar">
+                <li *ngFor="let item of navItems"><a id="nav-a" [href]="item.value">{{ item.title }}</a></li>
+            </ul>
+        </div>
+        <div id="title">{{ title }}</div>
+        <button><a href="#upload">{{ buttonText }}</a></button>
+    </div>
+</header>

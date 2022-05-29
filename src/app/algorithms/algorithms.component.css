@@ -1,0 +1,103 @@
+#outer-algo {
+    height: 55vh;
+    position: relative;
+}
+
+#algorithms {
+    position: absolute;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    height: 105%;
+    background-color: #fff;
+    border-radius: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#algorithms .algorithm {
+    height: 100%;
+    width: 100%;
+}
+
+#algorithms:target {
+    animation: colorTarget 2s;
+}
+
+@keyframes colorTarget {
+    0% {
+        border: 3px solid yellow;
+    }
+
+    75% {
+        border: 3px solid yellow;
+    }
+
+    100% {
+        border: none;
+    }
+}
+
+#algorithms .container {
+    height: 40%;
+    width: 100%;
+}
+
+#algorithms .container .title-description {
+    height: 100%;
+    width: 60%;
+}
+
+#title {
+    font-size: 1.9rem;
+    color: #191970;
+    margin-bottom: 0.3rem;
+}
+
+#algorithms .features {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#algorithms .features #col {
+    height: 100%;
+    width: 32%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+#algorithms .features #col span {
+    font-size: 1.2rem;
+    color: #191970;
+}
+
+.navbar {
+    margin: 0 auto;
+    height: 90%;
+    width: 82%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 0.4rem 0.9rem;
+    font-size: 1.7rem;
+    border-radius: 0.6rem;
+    border: none;
+    background-color: #191970;
+    color: #fff;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background-color: #ddd;
+    color: #222;
+}

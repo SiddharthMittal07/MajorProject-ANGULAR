@@ -1,0 +1,46 @@
+<section id="upload">
+    <div class="title-description">
+        <div id="title">{{ title }}</div>
+        <div id="desc">{{ descText }}</div>
+    </div>
+    <div class="container">
+        <div class="form" *ngIf="loading">
+            <label for="form-image">Upload Image:</label>
+            <form (submit)="uploadImage($event)">
+                <input type="file" name="upImage" id="button" (change)="selectImage($event)" />
+                <button>Upload</button>
+            </form>
+        </div>
+        <div class="form-result" *ngIf="!loading">
+            <div id="form-image">
+                <img [src]="upImage">
+                <div id="form">
+                    <label for="form-image">Upload Image:</label>
+                    <form (submit)="uploadImage($event)">
+                        <input type="file" name="upImage" id="button" (change)="selectImage($event)" />
+                        <button>Upload</button>
+                    </form>
+                </div>
+            </div>
+            <div id="upload-result" *ngIf="result.length">
+                <svg [attr.width]="width" [attr.height]="height">
+                    <g [ngStyle]="{transform: 'translate(' + margin.left + 'px, ' + margin.top + 'px)'}">
+                        <g [ngStyle]="{transform: 'translate(' + innerWidth / 2 + 'px, ' + innerHeight / 2 + 'px)'}">
+                            <path *ngFor="let d of arcs" [attr.d]="ar(d)" [attr.fill]="colorScale(d.data[0])" />
+                        </g>
+                        <g
+                            [ngStyle]="{transform: 'translate(' + (innerWidth - margin.right / 3) + 'px, ' + margin.top * 4 + 'px )'}">
+                            <g *ngFor="let d of colorScale.domain(), let i = index">
+                                <rect width="20" height="10" [attr.y]="i * 20" [attr.fill]="colorScale(d)" />
+                                <text [attr.y]="i * 20" dy="0.71em" x="25" fill="#000">{{ d }}</text>
+                            </g>
+                        </g>
+                        <g [ngStyle]="{transform: 'translate(' + innerWidth / 2 + 'px, ' + innerHeight + 'px)'}">
+                            <text [ngStyle]="{'font-weight': 'bold'}">Prediction: {{ predictedTumor }}</text>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>

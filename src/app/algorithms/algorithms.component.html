@@ -1,0 +1,36 @@
+<section id="outer-algo">
+    <div id="algorithms">
+        <div class="algorithm" *ngIf="data.length">
+            <div class="container">
+                <div class="title-description">
+                    <div id="title">{{ data[index].algorithm }}</div>
+                    <div id="description">{{ data[index].information.main }}</div>
+                </div>
+            </div>
+            <div class="features">
+                <div id="col">
+                    <span>Applications:</span>
+                    <ul>
+                        <li *ngFor="let item of data[index].information.applications">&gt; {{ item }}</li>
+                    </ul>
+                </div>
+                <div id="col">
+                    <span>Pros:</span>
+                    <ul>
+                        <li *ngFor="let item of data[index].information.pros">&gt; {{ item }}</li>
+                    </ul>
+                </div>
+                <div id="col">
+                    <span>Cons:</span>
+                    <ul>
+                        <li *ngFor="let item of data[index].information.cons">&gt; {{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <button (click)="decrementIndex()" [disabled]="index === 0">&lt;</button>
+        <button (click)="incrementIndex()" [disabled]="index === data.length - 1">&gt;</button>
+    </div>
+</section>

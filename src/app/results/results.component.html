@@ -1,0 +1,60 @@
+<section id="results">
+    <div class="title-description">
+        <div id="title">{{ title }}</div>
+        <div id="desc">{{ descText }}</div>
+    </div>
+    <div id="res">
+        <div id="display">
+            <div id="select-option">
+                <label for="choose-factor">Select Factor:</label>
+                <select name="choose-factor" id="choose-factor" (change)="changeYAttribute($event)">
+                    <option *ngFor="let factor of factors" [value]="factor.value"
+                        [selected]="factor.value === yAttribute">{{ factor.key }}</option>
+                </select>
+            </div>
+            <div id="factor-define">{{ factorDefinitions[yAttribute] }}</div>
+            <div id="table-algorithm">
+                <div id="algorithmDef"></div>
+                <table id="tab"></table>
+            </div>
+        </div>
+        <svg [ngStyle]="{ 'width': width, 'height': height }">
+            <g *ngIf="data.length" [ngStyle]="{'transform': 'translate('+ margin.left +'px,'+ margin.top +'px)'}">
+                <g>
+                    <line stroke="#000" [attr.y2]="innerHeight" />
+                    <g *ngFor="let tickValue of yScale.ticks()"
+                        [ngStyle]="{'transform': 'translate(-3px,' + yScale(tickValue) +'px)'}">
+                        <text [attr.x]="-3" dy="0.32em" [ngStyle]="{ 'text-anchor': 'end' }">{{ tickValue }}</text>
+                        <line [attr.x2]="6" stroke="#222" />
+                    </g>
+                </g>
+
+                <g [ngStyle]="{ 'transform': 'translate(0,' + innerHeight + 'px)'}">
+                    <line stroke="#000" [attr.x2]="innerWidth" />
+                    <g *ngFor="let tickValue of xScale.domain()"
+                        [ngStyle]="{'transform': 'translate('+ xScale(tickValue) + 'px, 3px)'}">
+                        <line [attr.y2]="-6" stroke="#222" />
+                        <text dy="0.81em" [ngStyle]="{ 'text-anchor': 'middle' }">{{ tickValue }}</text>
+                    </g>
+                </g>
+
+                <g (mouseenter)="showToolTip(d)" (mouseleave)="hideToolTip()" *ngFor="let d of data"
+                    [ngStyle]="{ 'transform': 'translate(' + xScale(d.algorithm) + 'px, ' + yScale(yValue(d)) + 'px)'}">
+                    <rect [attr.width]="xScale.bandwidth()" [attr.x]="-xScale.bandwidth() / 2"
+                        [attr.height]="innerHeight - yScale(yValue(d))" [attr.fill]="d.color" />
+                </g>
+                <g [ngStyle]="{'transform': 'translate(' + (innerWidth - 20) + 'px ,' + margin.top + 'px)'}">
+                    <g (mouseenter)="showTable('#00f')" (mouseleave)="hideTable()">
+                        <rect fill='#00f' width="20" height="20" x="-25px" />
+                        <text [ngStyle]="{'text-anchor': 'start'}" dy="0.91em">Efficient</text>
+                    </g>
+                    <g (mouseenter)="showTable('#f00')" (mouseleave)="hideTable()"
+                        [ngStyle]="{ 'transform': 'translate(0px, 30px)'}">
+                        <rect fill='#f00' width="20" height="20" x="-25px" />
+                        <text [ngStyle]="{'text-anchor': 'start'}" dy="0.91em">Inefficient</text>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
+</section>
